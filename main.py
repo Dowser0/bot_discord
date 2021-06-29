@@ -22,9 +22,29 @@ async def on_ready():
 @client.event
 async def on_message(message) :
 
+    if message.content.lower().startswith('!pay ') and len(message.content.lower().split()) :
+
+        message = message.content.lower().split()
+        channel = message.channel
+
+        valor_do_euro = float(message(1))
+        valor_do_serviço = float(message(2))
+        valor_em_reais = valor_do_serviço * valor_do_euro
+        advertiser = 15 * valor_em_reais / 100
+        cut = advertiser - valor_em_reais
+
+        await channel.purge(limit=1)
+
+        embed = discord.Embed(
+            title = 'Payment',
+            description = 'Cut: R$'+str(cut),
+            color = cor,
+        )
+        embed.set_thumbnail(url='https://cdn.discordapp.com/icons/838541121713471548/b2dd19ce2e73db32e92ab2dd30bd888f.webp?size=1024')
+        await channel.send(embed=embed)
+
     if message.content.lower().startswith('!verify') and len(message.content.lower().split()) :
         sleep(2)
-        print(message.author.id , ' Executou !verify')
         channel = message.channel
         message = message.content.upper().split()
         await channel.purge(limit=2)
