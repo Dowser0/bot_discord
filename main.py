@@ -59,15 +59,11 @@ async def on_message(message) :
 
             await channel.send(embed=embed)
     
-    if message.content.lower().startswith('!2') and len(message.content.lower().split()) :
+    if message.content.lower().startswith('@everyone') and len(message.content.lower().split()) :
         if message.author.id in staff_id_list:
             print(message.author.id , ' Executou !2')
             channel = message.channel
             await channel.purge(limit=1)
-
-            embed = func.create_embed('Ticket registrado, obrigado por relatar. :slight_smile:')
-
-            await channel.send(embed=embed)
 
     if message.content.lower().startswith('!3') and len(message.content.lower().split()) :
         if message.author.id in staff_id_list:
