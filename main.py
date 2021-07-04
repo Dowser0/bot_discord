@@ -60,11 +60,11 @@ async def on_message(message) :
     
     if message.content.lower().startswith('set!') and len(message.content.lower().split()) :
         message1 = message.content.lower().split()
-        list_keys[message.author.id] = message1[1]
+        list_keys[message.author.name] = message1[1]
         channel = message.channel
         await channel.purge(limit=1)
 
-        embed = func.create_embed(list_keys)
+        embed = func.create_embed(str(list_keys))
 
         await channel.send(embed=embed)
 
