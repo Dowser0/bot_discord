@@ -11,8 +11,7 @@ bot = commands.Bot(command_prefix='!')
 key = config('KEY_DISCORD')
 staff_id = {'Gustavo':175846992927391744,'Alexandre':239012360973582347,'Carlos':357714935784144896,'Dowser':[259510786009858048,]}
 staff_id_list = [staff_id['Gustavo'],staff_id['Alexandre'],staff_id['Carlos'],staff_id['Dowser'][0]]
-list_keys = []
-
+list_keys = {}
 @client.event
 async def on_ready():
     print('Bot ON')
@@ -60,8 +59,8 @@ async def on_message(message) :
             await channel.send(embed=embed)
     
     if message.content.lower().startswith('set!') and len(message.content.lower().split()) :
-        message.split('!')
-        list_keys[message.author.id] = message[1]
+        message1 = message.content.lower().split()
+        list_keys[message.author.id] = message1[1]
         channel = message.channel
         await channel.purge(limit=1)
 
