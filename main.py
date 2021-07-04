@@ -42,11 +42,11 @@ async def on_message(message) :
         embed.set_thumbnail(url='https://cdn.discordapp.com/icons/838541121713471548/b2dd19ce2e73db32e92ab2dd30bd888f.webp?size=1024')
         await channel.send(embed=embed)
 
-    if message.content.lower().startswith('!verify') and len(message.content.lower().split()) :
-        sleep(2)
-        channel = message.channel
-        message = message.content.upper().split()
-        await channel.purge(limit=2)
+    #if message.content.lower().startswith('!verify') and len(message.content.lower().split()) :
+    #    sleep(2)
+    #    channel = message.channel
+    #    message = message.content.upper().split()
+    #    await channel.purge(limit=2)
 
     if message.content.lower().startswith('!1') and len(message.content.lower().split()) :
         if message.author.id in staff_id_list:
