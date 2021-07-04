@@ -65,6 +65,10 @@ async def on_message(message) :
         await channel.purge(limit=10)
         key_embed = str(list_keys)
         key_embed = key_embed.replace(',','\n')
+        key_embed = key_embed.replace('{','')
+        key_embed = key_embed.replace('}','')
+        key_embed = key_embed.replace("'",'')
+        key_embed = key_embed.replace(':','-')
 
         embed = discord.Embed(
                 title = 'Keystone',
