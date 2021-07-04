@@ -52,20 +52,24 @@ async def on_message(message) :
         if message.author.id in staff_id_list:
             print(message.author.id , ' Executou !1')
             channel = message.channel
-            await channel.purge(limit=1)
+            await channel.purge(limit=20)
 
             embed = func.create_embed('Olá, Como posso ajudar ? :slight_smile:')
 
             await channel.send(embed=embed)
     
     if message.content.lower().startswith('set!') and len(message.content.lower().split()) :
-        message1 = message.content.lower().split()
-        list_keys[message.author.name] = message1[1]
+        message1 = message.content.lower().split('!')
+        list_keys[message.author.name] = message1[1]+'\n'
         channel = message.channel
-        await channel.purge(limit=1)
+        await channel.purge(limit=10)
 
-        embed = func.create_embed(str(list_keys))
-
+        embed = discord.Embed(
+                title = 'Keystone',
+                description = str(list_keys),
+                color = cor
+            )
+        embed.set_thumbnail(url='https://cdn.discordapp.com/icons/838541121713471548/b2dd19ce2e73db32e92ab2dd30bd888f.webp?size=1024')
         await channel.send(embed=embed)
 
     if message.content.lower().startswith('!3') and len(message.content.lower().split()) :
