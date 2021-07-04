@@ -5,7 +5,7 @@ from decouple import config
 from discord.ext import commands
 from time import sleep
 
-cor = 0x5B087E
+cor = 0xFF0000
 client = discord.Client()
 bot = commands.Bot(command_prefix='!')
 key = config('KEY_DISCORD')
@@ -68,10 +68,10 @@ async def on_message(message) :
         key_embed = key_embed.replace('{','')
         key_embed = key_embed.replace('}','')
         key_embed = key_embed.replace("'",'')
-        key_embed = key_embed.replace(':','-')
+        key_embed = key_embed.replace(':',' -')
 
         embed = discord.Embed(
-                title = 'Keystone',
+                title = 'KEYSTONE',
                 description = key_embed,
                 color = cor
             )
