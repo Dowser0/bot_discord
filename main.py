@@ -59,11 +59,14 @@ async def on_message(message) :
 
             await channel.send(embed=embed)
     
-    if message.content.lower().startswith('@everyone') and len(message.content.lower().split()) :
-        if message.author.id in staff_id_list:
-            print(message.author.id , ' Executou !2')
-            channel = message.channel
-            await channel.purge(limit=1)
+    if message.content.lower().startswith('!set') and len(message.content.lower().split()) :
+        list_keys[message.author.id] = message[4:]
+        channel = message.channel
+        await channel.purge(limit=1)
+
+        embed = func.create_embed(list_keys)
+
+        await channel.send(embed=embed)
 
     if message.content.lower().startswith('!3') and len(message.content.lower().split()) :
         if message.author.id in staff_id_list:
