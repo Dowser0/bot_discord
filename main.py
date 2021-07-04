@@ -59,8 +59,9 @@ async def on_message(message) :
 
             await channel.send(embed=embed)
     
-    if message.content.lower().startswith('!set') and len(message.content.lower().split()) :
-        list_keys[message.author.id] = message[4:]
+    if message.content.lower().startswith('set!') and len(message.content.lower().split()) :
+        message.split('!')
+        list_keys[message.author.id] = message[1]
         channel = message.channel
         await channel.purge(limit=1)
 
