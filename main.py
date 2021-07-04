@@ -60,13 +60,15 @@ async def on_message(message) :
     
     if message.content.lower().startswith('set!') and len(message.content.lower().split()) :
         message1 = message.content.lower().split('!')
-        list_keys[message.author.name] = message1[1]+'\n'
+        list_keys[message.author.name] = message1[1]
         channel = message.channel
         await channel.purge(limit=10)
+        key_embed = str(list_keys)
+        key_embed = key_embed.replace(',','\n')
 
         embed = discord.Embed(
                 title = 'Keystone',
-                description = str(list_keys),
+                description = key_embed,
                 color = cor
             )
         embed.set_thumbnail(url='https://cdn.discordapp.com/icons/838541121713471548/b2dd19ce2e73db32e92ab2dd30bd888f.webp?size=1024')
