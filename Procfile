@@ -1,0 +1,1 @@
+bot-dowser: python "main.py"
