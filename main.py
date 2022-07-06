@@ -1,7 +1,6 @@
 import discord
 import asyncio
 import func
-from decouple import config
 from discord.ext import commands
 from time import sleep
 from openai_ia import openAIQuery
