@@ -1,5 +1,6 @@
 import discord
 import asyncio
+from decouple import config
 import func
 from discord.ext import commands
 from time import sleep
@@ -8,7 +9,7 @@ from openai_ia import openAIQuery
 cor = 0xFF0000
 client = discord.Client()
 bot = commands.Bot(command_prefix='Dowser')
-KEY_DISCORD = config('KEY-DISCORD')
+KEY_DISCORD = config('KEY_DISCORD')
 
 @client.event
 async def on_ready():
