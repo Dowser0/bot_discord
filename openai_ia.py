@@ -10,7 +10,7 @@ def openAIQuery(query):
     response = openai.Completion.create(
       engine="text-davinci-002",
       prompt=query,
-      temperature=0.7,
+      temperature=0.5,
       max_tokens=256,
       top_p=1,
       frequency_penalty=0,
